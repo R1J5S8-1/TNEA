@@ -1,0 +1,25 @@
+.header {
+  max-height: 5rem;
+  border-bottom: 1px solid gainsboro;
+  display: flex;
+  padding: 0.5rem 0.5rem;
+}
+
+.header-logo {
+  width: 4rem;
+}
+
+.header img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.header-text {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
