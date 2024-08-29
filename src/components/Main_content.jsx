@@ -10,7 +10,7 @@ function Main_content() {
       <section className="main-body container-fluid">
         <div className="content-body">
           <div className="icon-space">
-                <span class="material-symbols-outlined"> groups </span>
+                <span className="material-symbols-outlined"> groups </span>
                 <p>Welcome User</p>
             </div>
             <div className="form-space">

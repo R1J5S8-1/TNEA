@@ -4,7 +4,7 @@ function Upload_files() {
   return (
     <>
       <div className="input-group mb-3">
-        <label className="input-group-text" for="aadhar_card">
+        <label className="input-group-text" htmlFor="aadhar_card">
           Aadhar Card
         </label>
         <input
@@ -21,7 +21,7 @@ function Upload_files() {
       </div>
 
       <div className="input-group mb-3">
-        <label className="input-group-text" for="pan_card">
+        <label className="input-group-text" htmlFor="pan_card">
           Pan Card
         </label>
         <input
@@ -38,7 +38,7 @@ function Upload_files() {
       </div>
 
       <div className="input-group mb-3">
-        <label className="input-group-text" for="passport">
+        <label className="input-group-text" htmlFor="passport">
           Passport-size Photo
         </label>
         <input
@@ -55,7 +55,7 @@ function Upload_files() {
       </div>
 
       <div className="input-group mb-3">
-        <label className="input-group-text" for="signature">
+        <label className="input-group-text" htmlFor="signature">
           Signature
         </label>
         <input

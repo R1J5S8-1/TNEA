@@ -6,7 +6,7 @@ function Personal_Details() {
     <div className="row mb-3">
         <div className="col-md-6">
             <div className="input-group">
-                <label for="fname" className="input-group-text"
+                <label htmlFor="fname" className="input-group-text"
                       >First Name :
                 </label>
                 <input
@@ -20,7 +20,7 @@ function Personal_Details() {
         </div>
         <div className="col-md-6">
             <div className="input-group">
-                <label for="lname" className="input-group-text"
+                <label htmlFor="lname" className="input-group-text"
                       >Last Name :
                 </label>
                 <input
@@ -36,7 +36,7 @@ function Personal_Details() {
     <div className="row mb-3">
         <div className="col-md-6">
             <div className="input-group">
-                <label for="fathername" className="input-group-text"
+                <label htmlFor="fathername" className="input-group-text"
                 >Father's Name</label>
                 <input
                     type="text"
@@ -49,7 +49,7 @@ function Personal_Details() {
         </div>
         <div className="col-md-6">
             <div className="input-group">
-                <label for="rollNo" className="input-group-text">HSC Roll No :</label>
+                <label htmlFor="rollNo" className="input-group-text">HSC Roll No :</label>
                 <input
                     type="text"
                     id="rollNo"
@@ -62,7 +62,7 @@ function Personal_Details() {
     </div>
 
     <div className="input-group mb-3">
-        <label for="school" className="input-group-text">School Name : </label>
+        <label htmlFor="school" className="input-group-text">School Name : </label>
         <input type="text" id="school" name="school" className="form-control" required />
     </div>
 
@@ -70,7 +70,7 @@ function Personal_Details() {
         <div className="col-md-6">
                   {/* <!-- mail --> */}
             <div className="input-group mb-3">
-                <label for="email" className="input-group-text">Email : </label>
+                <label htmlFor="email" className="input-group-text">Email : </label>
                 <input
                     type="email"
                     id="email"
@@ -83,7 +83,7 @@ function Personal_Details() {
         <div className="col-md-6">
                   {/* <!-- mobile --> */}
             <div className="input-group mb-3">
-                <label for="mobile" className="input-group-text">Mobile :</label>
+                <label htmlFor="mobile" className="input-group-text">Mobile :</label>
                 <input
                     type="number"
                     id="mobile"
@@ -98,7 +98,7 @@ function Personal_Details() {
     <div className="row mb-3">
         <div className="col-md-6">
             <div className="input-group">
-                <label for="dob" className="input-group-text">Date of Birth :</label>
+                <label htmlFor="dob" className="input-group-text">Date of Birth :</label>
                 <input
                     type="date"
                     id="dob"
@@ -110,7 +110,7 @@ function Personal_Details() {
         </div>
         <div className="col-md-6">
             <div className="input-group">
-                <label for="gender" className="input-group-text">Gender :</label>
+                <label htmlFor="gender" className="input-group-text">Gender :</label>
                 <select name="gender" id="gender" className="form-select">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
