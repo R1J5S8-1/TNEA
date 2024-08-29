@@ -1,10 +1,14 @@
 import React from 'react'
-import Personal_Details from './Personal_Details';
 import './Main_content.css'
+import Personal_Details from './Personal_Details';
 import Address from './Address';
 import Upload_files from './Upload_files';
+import { useState } from 'react';
 
 function Main_content() {
+  const [isSameAddress, setIsSameAddress] = useState(false);
+
+
   return (
     <>
       <section className="main-body container-fluid">
@@ -26,7 +30,7 @@ function Main_content() {
                                 <p className="h6 ms-1">Permanent Address</p>
                                 <div>
                                     <small className='me-1'>Same as Residential</small>
-                                    <input type="checkbox" name='sameAddress' id='sameAddress' style={{ backgroundColor:"white"}} />
+                                    <input type="checkbox" name='sameAddress' id='sameAddress'  />
                                 </div>
                             </div>
                             <Address />

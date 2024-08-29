@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Personal_Details() {
+    const [fname, setfname] = useState("");
+    const [lname, setlname] = useState("");
+    const [fathername, setfathername] = useState("");
+    const [rollNo, setrollNo] = useState("");
+    const [schoolName, setschoolName] = useState("");
+    const [mailId, setmailId] = useState("");
+    const [mobile, setmobile] = useState("");
+    const [dob, setdob] = useState("");
+    const [gender, setgender] = useState("");
+
+
   return (
     <>
     <div className="row mb-3">
@@ -14,6 +25,7 @@ function Personal_Details() {
                     id="fname"
                     name="fname"
                     className="form-control"
+                    onChange={(e) => setfname(e.target.value)}
                     required
                 />
             </div>
@@ -28,6 +40,7 @@ function Personal_Details() {
                     id="lname"
                     name="lname"
                     className="form-control"
+                    onChange={(e) => setlname(e.target.value)}
                     required
                 />
             </div>
@@ -43,6 +56,7 @@ function Personal_Details() {
                     id="fathername"
                     name="fathername"
                     className="form-control"
+                    onChange={(e) => setfathername(e.target.value)}
                     required
                 />
             </div>
@@ -55,15 +69,16 @@ function Personal_Details() {
                     id="rollNo"
                     name="rollNo"
                     className="form-control"
+                    onChange={(e) => setrollNo(e.target.value)}
                     required
                 />
             </div>
         </div>
     </div>
 
-    <div className="input-group mb-3">
+    <div className="input-group mb-3" style={{width: "97.5%"}}>
         <label htmlFor="school" className="input-group-text">School Name : </label>
-        <input type="text" id="school" name="school" className="form-control" required />
+        <input type="text" id="school" name="school" className="form-control" onChange={(e) => setschoolName(e.target.value)} required />
     </div>
 
     <div className="row mb-3">
@@ -76,6 +91,7 @@ function Personal_Details() {
                     id="email"
                     name="email"
                     className="form-control"
+                    onChange={(e) => setmailId(e.target.value)}
                     required
                 />
             </div>
@@ -89,6 +105,7 @@ function Personal_Details() {
                     id="mobile"
                     name="mobile"
                     className="form-control"
+                    onChange={(e) => setmobile(e.target.value)}
                     required
                 />
             </div>
@@ -104,6 +121,7 @@ function Personal_Details() {
                     id="dob"
                     name="dob"
                     className="form-control"
+                    onChange={(e) => setdob(e.target.value)}
                     required
                 />
             </div>
@@ -111,7 +129,7 @@ function Personal_Details() {
         <div className="col-md-6">
             <div className="input-group">
                 <label htmlFor="gender" className="input-group-text">Gender :</label>
-                <select name="gender" id="gender" className="form-select">
+                <select name="gender" id="gender" className="form-select" onChange={(e) => setgender(e.target.value)}>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
