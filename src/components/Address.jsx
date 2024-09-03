@@ -1,14 +1,25 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+const Address =({ address, street, city, state, country, pincode, onAddressChange }) => {
+  const [errors, setErrors] = useState({
+    address: "",
+    street: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+  });
 
-function Address() {
-  // const [address, setAddress] = useState('');
-  // const [street, setStreet] = useState('');
-  // const [city, setCity] = useState('');
-  // const [pincode, setPincode] = useState('');
-  // const [state, setState] = useState('');
-  // const [country, setCountry] = useState('');
-  
+  const validate = () => {
+    const newErrors = {};
+    if (!address) newErrors.address = "Door/Flat number is required.";
+    if (!street) newErrors.street = "Street Name is required.";
+    if (!city) newErrors.city = "City is required.";
+    if (!state) newErrors.state = "State is required.";
+    if (!country) newErrors.country = "Country is required.";
+    if (!pincode || pincode.length !== 6)
+      newErrors.pincode = "Pincode must be a 6-digit number.";
+    return newErrors;
+  };
 
   return (
     <>
@@ -21,15 +32,18 @@ function Address() {
           id="address"
           name="address"
           className="form-control"
-          onChange={(e) => setAddress(e.target.value)}
+          value={address}
+          onChange={(e) => onAddressChange('address', e.target.value)}
           required
         />
+        {errors.address && <p className="text-danger">{errors.address}</p>}
       </div>
       <div className="input-group mb-3">
         <label htmlFor="street" className="input-group-text">
           Street Name :
         </label>
-        <input type="text" id="street" name="street" className="form-control" onChange={(e) => setStreet(e.target.value)} required />
+        <input type="text" id="street" name="street" className="form-control" value={street} onChange={(e) => onAddressChange('street', e.target.value)} required />
+        {errors.street && <p className="text-danger">{errors.street}</p>}
       </div>
       {/* <!-- city, pincode, state, country --> */}
       <div className="input-group mb-3">
@@ -41,9 +55,11 @@ function Address() {
           id="city"
           name="city"
           className="form-control"
-          onChange={(e) => setCity(e.target.value)}
+          value={city}
+          onChange={(e) => onAddressChange('city', e.target.value)}
           required
         />
+        {errors.city && <p className="text-danger">{errors.city}</p>}
       </div>
       <div className="input-group mb-3">
         <label htmlFor="state" className="input-group-text">
@@ -54,9 +70,11 @@ function Address() {
           id="state"
           name="state"
           className="form-control"
-          onChange={(e) => setState(e.target.value)}
+          value={state}
+          onChange={(e) => onAddressChange('state', e.target.value)}
           required
         />
+        {errors.state && <p className="text-danger">{errors.state}</p>}
       </div>
       <div className="input-group mb-3">
         <label htmlFor="country" className="input-group-text">
@@ -67,9 +85,11 @@ function Address() {
           id="country"
           name="country"
           className="form-control"
-          onChange={(e) => setCountry(e.target.value)}
+          value={country}
+          onChange={(e) => onAddressChange('country', e.target.value)}
           required
         />
+        {errors.country && <p className="text-danger">{errors.country}</p>}
       </div>
       <div className="input-group mb-3">
         <label htmlFor="pincode" className="input-group-text">
@@ -80,12 +100,14 @@ function Address() {
           id="pincode"
           name="pincode"
           className="form-control"
-          onChange={(e) => setPincode(e.target.value)}
+          value={pincode}
+          onChange={(e) => onAddressChange('pincode', e.target.value)}
           required
         />
+        {errors.pincode && <p className="text-danger">{errors.pincode}</p>}
       </div>
     </>
   );
-}
+};
 
 export default Address;

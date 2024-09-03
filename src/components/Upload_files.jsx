@@ -70,12 +70,6 @@ function Upload_files() {
         </small>
         <div className="text-danger" id="fileError"></div>
       </div>
-
-      <div className="d-flex justify-content-center">
-        <button type="submit" className="btn btn-primary w-50">
-          Submit
-        </button>
-      </div>
     </>
   );
 }
