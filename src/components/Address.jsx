@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 
 function Address() {
-  const [address, setAddress] = useState('');
-  const [street, setStreet] = useState('');
-  const [city, setCity] = useState('');
-  const [pincode, setPincode] = useState('');
-  const [state, setState] = useState('');
-  const [country, setCountry] = useState('');
+  // const [address, setAddress] = useState('');
+  // const [street, setStreet] = useState('');
+  // const [city, setCity] = useState('');
+  // const [pincode, setPincode] = useState('');
+  // const [state, setState] = useState('');
+  // const [country, setCountry] = useState('');
   
 
   return (

@@ -11,6 +11,14 @@ function Personal_Details() {
     const [dob, setdob] = useState("");
     const [gender, setgender] = useState("");
 
+    // validate the form
+
+    function validateForm() {
+        if (fname === "" || lname === "" || fathername === "" || rollNo === "" || schoolName === "" || mailId === "" || mobile === "" || dob === "" || gender === "") {
+            return false;
+        }
+        return true;
+    }
 
   return (
     <>
