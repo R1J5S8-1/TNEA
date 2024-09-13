@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function Personal_Details() {
   // State for form fields
@@ -94,6 +94,7 @@ function Personal_Details() {
           </div>
         </div>
       </div>
+
       <div className="row mb-3">
         <div className="col-md-6">
           <div className="input-group">
@@ -133,20 +134,109 @@ function Personal_Details() {
         </div>
       </div>
 
-      <div className="input-group mb-3" style={{ width: "97.5%" }}>
-        <label htmlFor="schoolName" className="input-group-text">
-          School Name :
-        </label>
-        <input
-          type="text"
-          id="schoolName"
-          name="schoolName"
-          className="form-control"
-          value={formValues.schoolName}
-          onChange={handleChange}
-          required
-        />
-        {errors.schoolName && <p className="text-danger">{errors.schoolName}</p>}
+      <div className="row mb-3">
+        <div className="input-group mb-3">
+          <label htmlFor="schoolName" className="input-group-text">
+            School Name :
+          </label>
+          <input
+            type="text"
+            id="schoolName"
+            name="schoolName"
+            className="form-control"
+            value={formValues.schoolName}
+            onChange={handleChange}
+            required
+          />
+          {errors.schoolName && (
+            <p className="text-danger">{errors.schoolName}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <div className="input-group mb-3">
+            <label htmlFor="category" className="input-group-text">
+              Category :
+            </label>
+            <select
+              id="category"
+              name="category"
+              className="form-select"
+              value={formValues.category}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Category</option>
+              <option value="GEN">GEN</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+            </select>
+            {errors.category && (
+              <p className="text-danger">{errors.category}</p>
+            )}
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="input-group mb-3">
+            <label htmlFor="nationality" className="input-group-text">
+              Nationality :
+            </label>
+            <input
+              type="text"
+              id="nationality"
+              name="nationality"
+              className="form-control"
+              value={formValues.nationality}
+              onChange={handleChange}
+              required
+            />
+            {errors.nationality && (
+              <p className="text-danger">{errors.nationality}</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <div className="input-group mb-3">
+            <label htmlFor="board" className="input-group-text">
+              Board :
+            </label>
+            <input
+              type="text"
+              id="board"
+              name="board"
+              className="form-control"
+              value={formValues.board}
+              onChange={handleChange}
+              required
+            />
+            {errors.board && <p className="text-danger">{errors.board}</p>}
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="input-group mb-3">
+            <label htmlFor="percentage" className="input-group-text">
+              Percentage :
+            </label>
+            <input
+              type="text"
+              id="percentage"
+              name="percentage"
+              className="form-control"
+              value={formValues.percentage}
+              onChange={handleChange}
+              required
+            />
+            {errors.percentage && (
+              <p className="text-danger">{errors.percentage}</p>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="row mb-3">
@@ -229,4 +319,4 @@ function Personal_Details() {
   );
 }
 
-export default Personal_Details
+export default Personal_Details;
