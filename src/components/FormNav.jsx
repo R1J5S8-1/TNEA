@@ -9,7 +9,7 @@ import PaymentDetails from "./PaymentDetails";
 
 function FormNav() {
   const navRef = useRef(null);
-  const [formPage, setFormPage] = useState(5);
+  const [formPage, setFormPage] = useState(1);
   const [data, setData] = useState({
     name: "User",
     parentName: "",
