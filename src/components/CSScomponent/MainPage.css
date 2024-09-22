@@ -1,0 +1,67 @@
+.mainPage {
+    height: 100vh;
+    width: 100vw;
+    background-color: aliceblue;
+}
+
+.nav button {
+  width: 110px;
+  height: 40px;
+  margin: 0;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+.circled-text {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  background-color: white;
+  z-index: 1;
+}
+
+.circled-text.active {
+  border-color: green;
+  color: green;
+  background-color: white;
+}
+
+.progressBar {
+  height: 4px;
+  background-color: gray;
+  transition: width 0.3s;
+  position: relative;
+  top: -19px;
+  z-index: 0;
+}
+
+.progressBar.active {
+  background-color: green;
+}
+
+.formRender {
+  background-color: whitesmoke;
+  max-height: 75vh;
+  height: fit-content;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.formRender label,
+.formRender h4{
+  font-weight: 600;
+}
+
+.custom-container {
+  width: 90%;
+}
+
+.bankLogo {
+  height: 1.5rem;
+  width: 4rem;
+  margin-right: .7rem;
+}

@@ -1,10 +1,9 @@
-import React from 'react'
-import './Header.css'
+import './CSScomponent/Header.css'
 
-function Header() {
+const Header = () => {
   return (
     <>
-      <section className="header">
+      <section className="header container">
         <div className="header-logo">
           <figure>
             <img
