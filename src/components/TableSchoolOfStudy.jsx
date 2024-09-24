@@ -1,75 +1,54 @@
 import React, { useState } from "react";
 import states from "../JSON/stateTNOption.json";
 
-const TableSchoolOfStudy = ({
-  data,
-  setData,
-  onChange,
-}) => {
-  
+const TableSchoolOfStudy = ({ data, setData, onChange }) => {
   const [isSameSchoolAsVI, setIsSameSchoolAsVI] = useState(false);
   const customOnChange = (e) => {
-    onChange(e);
-    const checked = e.target.checked;
-    setIsSameSchoolAsVI(checked);
+    const { name, value, checked } = e.target;
 
-    if (checked) {
-      setData((prevData) => ({
-        ...prevData,
-        nameOfSchoolVII: prevData.nameOfSchoolVI,
-        stateVII: prevData.stateVI,
-        districtVII: prevData.districtVI,
-        yearOfPassingVII: parseInt(prevData.yearOfPassingVI) + 1,
-        nameOfSchoolVIII: prevData.nameOfSchoolVI,
-        stateVIII: prevData.stateVI,
-        districtVIII: prevData.districtVI,
-        yearOfPassingVIII: parseInt(prevData.yearOfPassingVI) + 2,
-        nameOfSchoolIX: prevData.nameOfSchoolVI,
-        stateIX: prevData.stateVI,
-        districtIX: prevData.districtVI,
-        yearOfPassingIX: parseInt(prevData.yearOfPassingVI) + 3,
-        nameOfSchoolX: prevData.nameOfSchoolVI,
-        stateX: prevData.stateVI,
-        districtX: prevData.districtVI,
-        yearOfPassingX: parseInt(prevData.yearOfPassingVI) + 4,
-        nameOfSchoolXI: prevData.nameOfSchoolVI,
-        stateXI: prevData.stateVI,
-        districtXI: prevData.districtVI,
-        yearOfPassingXI: parseInt(prevData.yearOfPassingVI) + 5,
-        nameOfSchoolXII: prevData.nameOfSchoolVI,
-        stateXII: prevData.stateVI,
-        districtXII: prevData.districtVI,
-        yearOfPassingXII: parseInt(prevData.yearOfPassingVI) + 6,
-      }));
+    onChange(e);
+
+    // Update the state for the checkbox
+    if (name === "sameSchoolAsVI") {
+      setIsSameSchoolAsVI(checked);
+      if (checked) {
+        updateRelatedFields(data.nameOfSchoolVI, data);
+      } else {
+        clearRelatedFields();
+      }
     } else {
-      setData((prevData) => ({
-        ...prevData,
-        nameOfSchoolVII: "",
-        stateVII: "",
-        districtVII: "",
-        yearOfPassingVII: "",
-        nameOfSchoolVIII: "",
-        stateVIII: "",
-        districtVIII: "",
-        yearOfPassingVIII: "",
-        nameOfSchoolIX: "",
-        stateIX: "",
-        districtIX: "",
-        yearOfPassingIX: "",
-        nameOfSchoolX: "",
-        stateX: "",
-        districtX: "",
-        yearOfPassingX: "",
-        nameOfSchoolXI: "",
-        stateXI: "",
-        districtXI: "",
-        yearOfPassingXI: "",
-        nameOfSchoolXII: "",
-        stateXII: "",
-        districtXII: "",
-        yearOfPassingXII: "",
-      }));
+      // If a field value changes while the checkbox is checked
+      if (isSameSchoolAsVI) {
+        updateRelatedFields(value, data);
+      }
     }
+  };
+
+  const updateRelatedFields = (value, prevData) => {
+    setData((prevData) => {
+      const updatedData = {};
+      for (let i = 7; i <= 12; i++) {
+        updatedData[`nameOfSchool${i}`] = value;
+        updatedData[`state${i}`] = prevData.stateVI;
+        updatedData[`district${i}`] = prevData.districtVI;
+        updatedData[`yearOfPassing${i}`] =
+          parseInt(prevData.yearOfPassingVI) + (i - 6);
+      }
+      return { ...prevData, ...updatedData };
+    });
+  };
+
+  const clearRelatedFields = () => {
+    setData((prevData) => {
+      const clearedData = {};
+      for (let i = 7; i <= 12; i++) {
+        clearedData[`nameOfSchool${i}`] = "";
+        clearedData[`state${i}`] = "";
+        clearedData[`district${i}`] = "";
+        clearedData[`yearOfPassing${i}`] = "";
+      }
+      return { ...prevData, ...clearedData };
+    });
   };
 
   return (
