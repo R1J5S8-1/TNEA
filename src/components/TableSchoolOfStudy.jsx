@@ -1,6 +1,77 @@
-import React from 'react'
+import React, { useState } from "react";
+import states from "../JSON/stateTNOption.json";
 
-const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }) => {
+const TableSchoolOfStudy = ({
+  data,
+  setData,
+  onChange,
+}) => {
+  
+  const [isSameSchoolAsVI, setIsSameSchoolAsVI] = useState(false);
+  const customOnChange = (e) => {
+    onChange(e);
+    const checked = e.target.checked;
+    setIsSameSchoolAsVI(checked);
+
+    if (checked) {
+      setData((prevData) => ({
+        ...prevData,
+        nameOfSchoolVII: prevData.nameOfSchoolVI,
+        stateVII: prevData.stateVI,
+        districtVII: prevData.districtVI,
+        yearOfPassingVII: parseInt(prevData.yearOfPassingVI) + 1,
+        nameOfSchoolVIII: prevData.nameOfSchoolVI,
+        stateVIII: prevData.stateVI,
+        districtVIII: prevData.districtVI,
+        yearOfPassingVIII: parseInt(prevData.yearOfPassingVI) + 2,
+        nameOfSchoolIX: prevData.nameOfSchoolVI,
+        stateIX: prevData.stateVI,
+        districtIX: prevData.districtVI,
+        yearOfPassingIX: parseInt(prevData.yearOfPassingVI) + 3,
+        nameOfSchoolX: prevData.nameOfSchoolVI,
+        stateX: prevData.stateVI,
+        districtX: prevData.districtVI,
+        yearOfPassingX: parseInt(prevData.yearOfPassingVI) + 4,
+        nameOfSchoolXI: prevData.nameOfSchoolVI,
+        stateXI: prevData.stateVI,
+        districtXI: prevData.districtVI,
+        yearOfPassingXI: parseInt(prevData.yearOfPassingVI) + 5,
+        nameOfSchoolXII: prevData.nameOfSchoolVI,
+        stateXII: prevData.stateVI,
+        districtXII: prevData.districtVI,
+        yearOfPassingXII: parseInt(prevData.yearOfPassingVI) + 6,
+      }));
+    } else {
+      setData((prevData) => ({
+        ...prevData,
+        nameOfSchoolVII: "",
+        stateVII: "",
+        districtVII: "",
+        yearOfPassingVII: "",
+        nameOfSchoolVIII: "",
+        stateVIII: "",
+        districtVIII: "",
+        yearOfPassingVIII: "",
+        nameOfSchoolIX: "",
+        stateIX: "",
+        districtIX: "",
+        yearOfPassingIX: "",
+        nameOfSchoolX: "",
+        stateX: "",
+        districtX: "",
+        yearOfPassingX: "",
+        nameOfSchoolXI: "",
+        stateXI: "",
+        districtXI: "",
+        yearOfPassingXI: "",
+        nameOfSchoolXII: "",
+        stateXII: "",
+        districtXII: "",
+        yearOfPassingXII: "",
+      }));
+    }
+  };
+
   return (
     <>
       <table
@@ -19,7 +90,7 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                   type="checkbox"
                   id="sameSchoolAsVI"
                   checked={isSameSchoolAsVI}
-                  onChange={checkBoxChange}
+                  onChange={customOnChange}
                 />
                 <label htmlFor="sameSchoolAsVI" className="ms-2 fw-normal">
                   Same as VI Std. to all
@@ -112,36 +183,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 onChange={onChange}
                 value={data.stateVI}
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -228,36 +274,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 className="form-select w-100"
                 required
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -344,36 +365,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 className="form-select w-100"
                 required
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -460,36 +456,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 className="form-select w-100"
                 required
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -576,36 +547,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 className="form-select w-100"
                 required
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -691,36 +637,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 className="form-select w-100"
                 required
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -806,36 +727,11 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
                 className="form-select w-100"
                 required
               >
-                <option value="">Select</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chattisgarh">Chattisgarh</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
+                {states.map((states) => (
+                  <option key={states.value} value={states.value}>
+                    {states.label}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
@@ -843,6 +739,6 @@ const TableSchoolOfStudy = ({ data, onChange, checkBoxChange, isSameSchoolAsVI }
       </table>
     </>
   );
-}
+};
 
-export default TableSchoolOfStudy
+export default TableSchoolOfStudy;

@@ -7,85 +7,12 @@ import AcademicInformation from "./AcademicInformation";
 import Preview from "./Preview";
 import PaymentDetails from "./PaymentDetails";
 
+import userDetails from "../JSON/userDetails.json";
+
 function FormNav() {
   const navRef = useRef(null);
   const [formPage, setFormPage] = useState(1);
-  const [data, setData] = useState({
-    name: "User",
-    parentName: "",
-    address: "",
-    permanentAddress: "",
-    state: "",
-    district: "",
-    taluk: "",
-    pincode: "",
-    nativeDistrict: "",
-    email: "",
-    mobile: "",
-    dob: "2001-09-03",
-    gender: "",
-    motherTongue: "",
-    nationality: "",
-    nativity: "",
-    religion: "",
-    community: "",
-    caste: "",
-    aadhar: "",
-    sports: "",
-    exService: "",
-    differntlyAbled: "",
-    TFC: "",
-    parrentOccupation: "",
-    annualIncome: "",
-    firstGraduate: "",
-    postMatricScholarship: "",
-    schoolCategory: "",
-    stateOfStudy: "",
-    schoolCivicStatus: "",
-    schoolOfStudyGovt: "",
-    yearOfPassingVI: "",
-    nameOfSchoolVI: "",
-    districtVI: "",
-    stateVI: "",
-    yearOfPassingVII: "",
-    nameOfSchoolVII: "",
-    districtVII: "",
-    stateVII: "",
-    yearOfPassingVIII: "",
-    nameOfSchoolVIII: "",
-    districtVIII: "",
-    stateVIII: "",
-    yearOfPassingIX: "",
-    nameOfSchoolIX: "",
-    districtIX: "",
-    stateIX: "",
-    yearOfPassingX: "",
-    nameOfSchoolX: "",
-    districtX: "",
-    stateX: "",
-    yearOfPassingXI: "",
-    nameOfSchoolXI: "",
-    districtXI: "",
-    stateXI: "",
-    yearOfPassingXII: "",
-    nameOfSchoolXII: "",
-    districtXII: "",
-    stateXII: "",
-    qualifyingExam: "",
-    boardOfExam: "",
-    HSCRegistrationNo: "",
-    HSCRollNo: "",
-    qualifiedYear: "",
-    HSCGroup: "",
-    HSCGroupCode: "",
-    HSCMedium: "",
-    HSCMarkMax: "",
-    HSCMarkObtained: "",
-    SSLCMarkMax: "",
-    SSLCMarkObtained: "",
-    communityNumber: "",
-    nativityNumber: "",
-  });
+  const [data, setData] = useState(userDetails);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -234,42 +161,6 @@ function FormNav() {
     }
   }, [formPage]);
 
-  const handleCheckboxChange = (e) => {
-    const checked = e.target.checked;
-    setIsSameSchoolAsVI(checked);
-
-    if (checked) {
-      setData((prevData) => ({
-        ...prevData,
-        nameOfSchoolVII: prevData.nameOfSchoolVI,
-        districtVII: prevData.districtVI,
-        stateVII: prevData.stateVI,
-        yearOfPassingVII: parseInt(prevData.yearOfPassingVI) + 1,
-        nameOfSchoolVIII: prevData.nameOfSchoolVI,
-        districtVIII: prevData.districtVI,
-        stateVIII: prevData.stateVI,
-        yearOfPassingVIII: parseInt(prevData.yearOfPassingVI) + 2,
-        nameOfSchoolIX: prevData.nameOfSchoolVI,
-        districtIX: prevData.districtVI,
-        stateIX: prevData.stateVI,
-        yearOfPassingIX: parseInt(prevData.yearOfPassingVI) + 3,
-        nameOfSchoolX: prevData.nameOfSchoolVI,
-        districtX: prevData.districtVI,
-        stateX: prevData.stateVI,
-        yearOfPassingX: parseInt(prevData.yearOfPassingVI) + 4,
-        nameOfSchoolXI: prevData.nameOfSchoolVI,
-        districtXI: prevData.districtVI,
-        stateXI: prevData.stateVI,
-        yearOfPassingXI: parseInt(prevData.yearOfPassingVI) + 5,
-        nameOfSchoolXII: prevData.nameOfSchoolVI,
-        districtXII: prevData.districtVI,
-        stateXII: prevData.stateVI,
-        yearOfPassingXII: parseInt(prevData.yearOfPassingVI) + 6,
-      }));
-    }
-  };
-
-
   const handleSave = () => {
     // const validationErrors = validateForm();
     // setErrors(validationErrors);
@@ -290,7 +181,6 @@ function FormNav() {
       setFormPage((prevPage) => prevPage - 1);
     }
   };
-
 
   return (
     <>
@@ -388,7 +278,6 @@ function FormNav() {
             data={data}
             setData={setData}
             onChange={handleChange}
-            checkBoxChange={handleCheckboxChange}
             next={handleSave}
             back={handleBack}
           />
@@ -404,8 +293,6 @@ function FormNav() {
         {formPage === 6 && (
           <Preview
             data={data}
-            formPage={formPage}
-            setFormPage={setFormPage}
             onChange={handleChange}
             next={handleSave}
             back={handleBack}

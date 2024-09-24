@@ -1,45 +1,10 @@
 import React,{ useState } from "react";
 import TableSchoolOfStudy from "./TableSchoolOfStudy";
 
-const SchoolOfStudy = ({ data, setData, onChange, checkBoxChange , next, back }) => {
+const SchoolOfStudy = ({ data, setData, onChange, next, back }) => {
   const [errors, setErrors] = useState({});
-  const [isSameSchoolAsVI, setIsSameSchoolAsVI] = useState(false);
   const [tableError, setTableError] = useState({});
 
-  const customCheckboxChange = (e) => {
-    checkBoxChange(e);
-    const { name, value } = e.target;
-
-    if (isSameSchoolAsVI && name === "nameOfSchoolVI") {
-      setData((prevData) => ({
-        ...prevData,
-        nameOfSchoolVII: value,
-        districtVII: prevData.districtVI,
-        stateVII: prevData.stateVI,
-        yearOfPassingVII: parseInt(prevData.yearOfPassingVI) + 1,
-        nameOfSchoolVIII: value,
-        districtVIII: prevData.districtVI,
-        stateVIII: prevData.stateVI,
-        yearOfPassingVIII: parseInt(prevData.yearOfPassingVI) + 2,
-        nameOfSchoolIX: value,
-        districtIX: prevData.districtVI,
-        stateIX: prevData.stateVI,
-        yearOfPassingIX: parseInt(prevData.yearOfPassingVI) + 3,
-        nameOfSchoolX: value,
-        districtX: prevData.districtVI,
-        stateX: prevData.stateVI,
-        yearOfPassingX: parseInt(prevData.yearOfPassingVI) + 4,
-        nameOfSchoolXI: value,
-        districtXI: prevData.districtVI,
-        stateXI: prevData.stateVI,
-        yearOfPassingXI: parseInt(prevData.yearOfPassingVI) + 5,
-        nameOfSchoolXII: value,
-        districtXII: prevData.districtVI,
-        stateXII: prevData.stateVI,
-        yearOfPassingXII: parseInt(prevData.yearOfPassingVI) + 6,
-      }));
-    }
-  };
 
   const validateForm = () => {
     const validationErrors = {};
@@ -289,9 +254,7 @@ const SchoolOfStudy = ({ data, setData, onChange, checkBoxChange , next, back })
           <TableSchoolOfStudy
             data={data}
             setData={setData}
-            checkBoxChange={customCheckboxChange}
             onChange={onChange}
-            isSameSchoolAsVI={isSameSchoolAsVI}
           />
           {/* {Object.keys(errors).map((key) => (
             <div key={key} style={{ color: "red" }}>
