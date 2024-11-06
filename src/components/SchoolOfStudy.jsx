@@ -267,14 +267,14 @@ const SchoolOfStudy = ({ data, setData, onChange, next, back }) => {
             </div>
           ))}
         </div>
-      </div>
-      <div className="d-flex justify-content-end me-5 mt-2">
-        <button className="btn btn-secondary me-3" onClick={back}>
-          Back
-        </button>
-        <button type="submit" className="btn btn-primary" onClick={next}>
-          Save & Continue
-        </button>
+        <div className="d-flex justify-content-end me-5 mt-2">
+          <button className="btn btn-secondary me-3" onClick={back}>
+            Back
+          </button>
+          <button type="submit" className="btn btn-primary" onClick={next}>
+            Save & Continue
+          </button>
+        </div>
       </div>
     </>
   );

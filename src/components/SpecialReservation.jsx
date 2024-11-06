@@ -145,14 +145,14 @@ const SpecialReservation = ({ data,  onChange, next, back }) => {
           />
           {errors.TFC && <div className="text-danger">{errors.TFC}</div>}
         </div>
-      </div>
-      <div className="d-flex justify-content-end me-5">
-        <button className="btn btn-secondary me-3" onClick={back}>
-          Back
-        </button>
-        <button type="submit" className="btn btn-primary" onClick={next}>
-          Save & Continue
-        </button>
+        <div className="d-flex justify-content-end me-5">
+          <button className="btn btn-secondary me-3" onClick={back}>
+            Back
+          </button>
+          <button type="submit" className="btn btn-primary" onClick={next}>
+            Save & Continue
+          </button>
+        </div>
       </div>
     </>
   );

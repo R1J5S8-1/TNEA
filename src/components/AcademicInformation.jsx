@@ -265,12 +265,14 @@ const AcademicInformation = ({ data, onChange, next, back }) => {
           value={data.nativityNumber}
           className="form-control mb-3 w-75"
         />
-      </div>
-      <div className="d-flex justify-content-end me-5 mt-2">
-        <button className="btn btn-secondary me-3" onClick={back}>Back</button>
-        <button type="submit" onClick={next} className="btn btn-primary">
-          Save & Continue
-        </button>
+        <div className="d-flex justify-content-end me-5 mt-2">
+          <button className="btn btn-secondary me-3" onClick={back}>
+            Back
+          </button>
+          <button type="submit" onClick={next} className="btn btn-primary">
+            Save & Continue
+          </button>
+        </div>
       </div>
     </>
   );

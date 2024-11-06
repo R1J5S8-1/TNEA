@@ -85,12 +85,12 @@ const PaymentDetails = () => {
             </button>
           </div>
         </div>
-      </div>
-      <div className="d-flex justify-content-end me-5 mt-2">
-        <button className="btn btn-secondary me-3">Back</button>
-        <button type="submit" className="btn btn-primary">
-          Pay
-        </button>
+        <div className="d-flex justify-content-end me-5 mt-2">
+          <button className="btn btn-secondary me-3">Back</button>
+          <button type="submit" className="btn btn-primary">
+            Pay
+          </button>
+        </div>
       </div>
     </>
   );

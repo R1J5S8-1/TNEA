@@ -28,12 +28,14 @@ const Preview = ({ data, next, back }) => {
         <div className="card container-fluid my-5 custom-container">
           <div className="card-header"></div>
         </div>
-      </div>
-      <div className="d-flex justify-content-end me-5 mt-2">
-        <button className="btn btn-secondary me-3" onClick={back}>Back</button>
-        <button type="submit" onClick={next} className="btn btn-primary">
-          Continue to Pay
-        </button>
+        <div className="d-flex justify-content-end me-5 mt-2">
+          <button className="btn btn-secondary me-3" onClick={back}>
+            Back
+          </button>
+          <button type="submit" onClick={next} className="btn btn-primary">
+            Continue to Pay
+          </button>
+        </div>
       </div>
     </>
   );
